@@ -14,6 +14,7 @@
 		350494C620436B2A0065F5AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 350494C520436B2A0065F5AB /* Assets.xcassets */; };
 		350494C920436B2A0065F5AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350494C720436B2A0065F5AB /* LaunchScreen.storyboard */; };
 		350494D3204371090065F5AB /* GHUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350494D2204371090065F5AB /* GHUserTableViewCell.swift */; };
+		35635BF92043BB0B000C6902 /* AddUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35635BF82043BB0B000C6902 /* AddUserController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		350494C820436B2A0065F5AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		350494CA20436B2A0065F5AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		350494D2204371090065F5AB /* GHUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUserTableViewCell.swift; sourceTree = "<group>"; };
+		35635BF82043BB0B000C6902 /* AddUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		350494D120436B450065F5AB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				35635BF82043BB0B000C6902 /* AddUserController.swift */,
 				350494BD20436B2A0065F5AB /* ViewController.swift */,
 			);
 			path = Controller;
@@ -161,6 +164,7 @@
 				350494BE20436B2A0065F5AB /* ViewController.swift in Sources */,
 				350494D3204371090065F5AB /* GHUserTableViewCell.swift in Sources */,
 				350494C420436B2A0065F5AB /* GitUp.xcdatamodeld in Sources */,
+				35635BF92043BB0B000C6902 /* AddUserController.swift in Sources */,
 				350494BC20436B2A0065F5AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
