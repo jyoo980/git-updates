@@ -17,6 +17,7 @@
 		35635BF92043BB0B000C6902 /* AddUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35635BF82043BB0B000C6902 /* AddUserController.swift */; };
 		35A7B60D20452D010088406E /* SearchUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7B60C20452D010088406E /* SearchUserRequest.swift */; };
 		35A7B6112045352A0088406E /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7B6102045352A0088406E /* Utility.swift */; };
+		35A7B6132045381B0088406E /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7B6122045381B0088406E /* GitHubUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		35635BF82043BB0B000C6902 /* AddUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserController.swift; sourceTree = "<group>"; };
 		35A7B60C20452D010088406E /* SearchUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserRequest.swift; sourceTree = "<group>"; };
 		35A7B6102045352A0088406E /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		35A7B6122045381B0088406E /* GitHubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				35A7B60C20452D010088406E /* SearchUserRequest.swift */,
 				35A7B6102045352A0088406E /* Utility.swift */,
+				35A7B6122045381B0088406E /* GitHubUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				350494D3204371090065F5AB /* GHUserTableViewCell.swift in Sources */,
 				35A7B60D20452D010088406E /* SearchUserRequest.swift in Sources */,
 				350494C420436B2A0065F5AB /* GitUp.xcdatamodeld in Sources */,
+				35A7B6132045381B0088406E /* GitHubUser.swift in Sources */,
 				35635BF92043BB0B000C6902 /* AddUserController.swift in Sources */,
 				350494BC20436B2A0065F5AB /* AppDelegate.swift in Sources */,
 			);
