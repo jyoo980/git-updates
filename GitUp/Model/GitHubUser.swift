@@ -10,26 +10,26 @@ import Foundation
 
 class GitHubUser {
     
-    private var fullName: String = ""
-    private var pageURL : URL
-    private var imageURL : URL
+    private var userName: String 
+    private var pageURL : String
+    private var imageURL : String
     
     init(name: String, page: String, image: String) {
-        fullName = name
-        pageURL = URL(string: page)!
-        imageURL = URL(string: image)!
+        userName = name
+        pageURL = page
+        imageURL = image
     }
     
-    func getFullName() -> String {
-        return fullName
+    func getUserName() -> String {
+        return userName
     }
     
     func getPageURL() -> URL {
-        return pageURL
+        return URL(string: pageURL)!
     }
     
     func getImageURL() -> URL {
-        return imageURL
+        return URL(string: imageURL)!
     }
     
 }

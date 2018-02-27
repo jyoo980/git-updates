@@ -28,6 +28,9 @@ class AddUserController: UIViewController, UISearchBarDelegate, UIScrollViewDele
     
     func getUserSearchResults() {
         let searchRequest = SearchUserRequest()
+        searchRequest.getUserSearchData(fullName: searchUserName) { (result) -> () in
+            print("Hello")
+        }
     }
     
     

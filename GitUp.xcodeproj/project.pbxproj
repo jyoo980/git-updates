@@ -13,7 +13,7 @@
 		350494C420436B2A0065F5AB /* GitUp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 350494C220436B2A0065F5AB /* GitUp.xcdatamodeld */; };
 		350494C620436B2A0065F5AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 350494C520436B2A0065F5AB /* Assets.xcassets */; };
 		350494C920436B2A0065F5AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350494C720436B2A0065F5AB /* LaunchScreen.storyboard */; };
-		350494D3204371090065F5AB /* GHUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350494D2204371090065F5AB /* GHUserTableViewCell.swift */; };
+		350494D3204371090065F5AB /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350494D2204371090065F5AB /* UserTableViewCell.swift */; };
 		35635BF92043BB0B000C6902 /* AddUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35635BF82043BB0B000C6902 /* AddUserController.swift */; };
 		35A7B60D20452D010088406E /* SearchUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7B60C20452D010088406E /* SearchUserRequest.swift */; };
 		35A7B6112045352A0088406E /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7B6102045352A0088406E /* Utility.swift */; };
@@ -29,7 +29,7 @@
 		350494C520436B2A0065F5AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		350494C820436B2A0065F5AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		350494CA20436B2A0065F5AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		350494D2204371090065F5AB /* GHUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUserTableViewCell.swift; sourceTree = "<group>"; };
+		350494D2204371090065F5AB /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		35635BF82043BB0B000C6902 /* AddUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserController.swift; sourceTree = "<group>"; };
 		35A7B60C20452D010088406E /* SearchUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserRequest.swift; sourceTree = "<group>"; };
 		35A7B6102045352A0088406E /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 		35A7B60F20452D2A0088406E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				350494D2204371090065F5AB /* GHUserTableViewCell.swift */,
+				350494D2204371090065F5AB /* UserTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -188,7 +188,7 @@
 			files = (
 				35A7B6112045352A0088406E /* Utility.swift in Sources */,
 				350494BE20436B2A0065F5AB /* ViewController.swift in Sources */,
-				350494D3204371090065F5AB /* GHUserTableViewCell.swift in Sources */,
+				350494D3204371090065F5AB /* UserTableViewCell.swift in Sources */,
 				35A7B60D20452D010088406E /* SearchUserRequest.swift in Sources */,
 				350494C420436B2A0065F5AB /* GitUp.xcdatamodeld in Sources */,
 				35A7B6132045381B0088406E /* GitHubUser.swift in Sources */,
