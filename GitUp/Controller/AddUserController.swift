@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
-class AddUserController: UIViewController, UISearchBarDelegate, UIScrollViewDelegate {
+class AddUserController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var userSearchBar: UISearchBar!
     @IBOutlet var userSearchScroll: UIScrollView!
     var searchUserName : String = ""
+    var searchUserNames : [String] = []
     
     override func viewDidLoad() {
         userSearchBar.delegate = self
@@ -29,7 +30,9 @@ class AddUserController: UIViewController, UISearchBarDelegate, UIScrollViewDele
     func getUserSearchResults() {
         let searchRequest = SearchUserRequest()
         searchRequest.getUserSearchData(fullName: searchUserName) { (result) -> () in
-            print("Hello")
+            for gitUser in result {
+                self.searchUserNames.append(gitUser.getUserName())
+            }
         }
     }
     
