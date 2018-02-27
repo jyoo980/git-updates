@@ -73,6 +73,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="TcL-xq-3wF" id="q9c-af-OMn"/>
                         <outlet property="userSearchBar" destination="Ng3-wK-98c" id="Ovu-yJ-R0W"/>
+                        <outlet property="userSearchScroll" destination="0Ku-tg-PQW" id="Svc-xJ-pxl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80b-lz-XZm" userLabel="First Responder" sceneMemberID="firstResponder"/>

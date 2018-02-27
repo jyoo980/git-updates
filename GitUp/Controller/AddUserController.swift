@@ -9,16 +9,26 @@
 import Foundation
 import UIKit
 
-class AddUserController : UIViewController {
+class AddUserController: UIViewController, UISearchBarDelegate, UIScrollViewDelegate {
     
     @IBOutlet weak var userSearchBar: UISearchBar!
+    @IBOutlet var userSearchScroll: UIScrollView!
+    var searchUserName : String = ""
     
     override func viewDidLoad() {
-        // TODO
+        userSearchBar.delegate = self
+        userSearchScroll.delegate = self
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        userSearchBar.resignFirstResponder()
+        self.searchUserName = userSearchBar.text!
     }
     
     
+
     
+    
+
 }
-
-
+    

@@ -15,6 +15,7 @@
 		350494C920436B2A0065F5AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350494C720436B2A0065F5AB /* LaunchScreen.storyboard */; };
 		350494D3204371090065F5AB /* GHUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350494D2204371090065F5AB /* GHUserTableViewCell.swift */; };
 		35635BF92043BB0B000C6902 /* AddUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35635BF82043BB0B000C6902 /* AddUserController.swift */; };
+		35A7B60D20452D010088406E /* SearchUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7B60C20452D010088406E /* SearchUserRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		350494CA20436B2A0065F5AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		350494D2204371090065F5AB /* GHUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUserTableViewCell.swift; sourceTree = "<group>"; };
 		35635BF82043BB0B000C6902 /* AddUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserController.swift; sourceTree = "<group>"; };
+		35A7B60C20452D010088406E /* SearchUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +62,14 @@
 		350494BA20436B2A0065F5AB /* GitUp */ = {
 			isa = PBXGroup;
 			children = (
+				35A7B60E20452D0F0088406E /* Model */,
+				35A7B60F20452D2A0088406E /* View */,
 				350494D120436B450065F5AB /* Controller */,
 				350494D020436B3B0065F5AB /* UI */,
 				350494BB20436B2A0065F5AB /* AppDelegate.swift */,
 				350494C520436B2A0065F5AB /* Assets.xcassets */,
 				350494CA20436B2A0065F5AB /* Info.plist */,
 				350494C220436B2A0065F5AB /* GitUp.xcdatamodeld */,
-				350494D2204371090065F5AB /* GHUserTableViewCell.swift */,
 			);
 			path = GitUp;
 			sourceTree = "<group>";
@@ -87,6 +90,22 @@
 				350494BD20436B2A0065F5AB /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		35A7B60E20452D0F0088406E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				35A7B60C20452D010088406E /* SearchUserRequest.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		35A7B60F20452D2A0088406E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				350494D2204371090065F5AB /* GHUserTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +182,7 @@
 			files = (
 				350494BE20436B2A0065F5AB /* ViewController.swift in Sources */,
 				350494D3204371090065F5AB /* GHUserTableViewCell.swift in Sources */,
+				35A7B60D20452D010088406E /* SearchUserRequest.swift in Sources */,
 				350494C420436B2A0065F5AB /* GitUp.xcdatamodeld in Sources */,
 				35635BF92043BB0B000C6902 /* AddUserController.swift in Sources */,
 				350494BC20436B2A0065F5AB /* AppDelegate.swift in Sources */,
