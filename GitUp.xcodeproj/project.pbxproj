@@ -16,6 +16,7 @@
 		350494D3204371090065F5AB /* GHUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350494D2204371090065F5AB /* GHUserTableViewCell.swift */; };
 		35635BF92043BB0B000C6902 /* AddUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35635BF82043BB0B000C6902 /* AddUserController.swift */; };
 		35A7B60D20452D010088406E /* SearchUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7B60C20452D010088406E /* SearchUserRequest.swift */; };
+		35A7B6112045352A0088406E /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7B6102045352A0088406E /* Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		350494D2204371090065F5AB /* GHUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUserTableViewCell.swift; sourceTree = "<group>"; };
 		35635BF82043BB0B000C6902 /* AddUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserController.swift; sourceTree = "<group>"; };
 		35A7B60C20452D010088406E /* SearchUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserRequest.swift; sourceTree = "<group>"; };
+		35A7B6102045352A0088406E /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				35A7B60C20452D010088406E /* SearchUserRequest.swift */,
+				35A7B6102045352A0088406E /* Utility.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35A7B6112045352A0088406E /* Utility.swift in Sources */,
 				350494BE20436B2A0065F5AB /* ViewController.swift in Sources */,
 				350494D3204371090065F5AB /* GHUserTableViewCell.swift in Sources */,
 				35A7B60D20452D010088406E /* SearchUserRequest.swift in Sources */,

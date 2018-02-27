@@ -23,6 +23,11 @@ class AddUserController: UIViewController, UISearchBarDelegate, UIScrollViewDele
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         userSearchBar.resignFirstResponder()
         self.searchUserName = userSearchBar.text!
+        getUserSearchResults()
+    }
+    
+    func getUserSearchResults() {
+        let searchRequest = SearchUserRequest()
     }
     
     
