@@ -43,8 +43,8 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
         if (searchBar.text != "") {
             self.searchResults.removeAll()
             self.userQuery = userSearchBar.text!
-            self.userSearchBar.endEditing(true)
             searchForUser()
+            self.userSearchBar.endEditing(true)
         }
     }
     
