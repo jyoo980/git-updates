@@ -100,6 +100,57 @@
                                     <outlet property="userNameText" destination="nmq-Ck-LRJ" id="ZG6-JT-89N"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="95" id="EZF-NY-1CE" customClass="UserTableViewCell" customModule="GitUp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="167" width="375" height="95"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EZF-NY-1CE" id="x4m-tP-s1j">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="94.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvE-pc-I2L">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Octocat" translatesAutoresizingMaskIntoConstraints="NO" id="HPS-dh-LBJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="53l-er-uhP"/>
+                                                        <constraint firstAttribute="height" constant="90" id="hBd-bi-8jG"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVP-kY-4P8">
+                                                    <rect key="frame" x="113" y="37" width="229" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="dVP-kY-4P8" firstAttribute="leading" secondItem="HPS-dh-LBJ" secondAttribute="trailing" constant="23" id="5A4-uP-xH6"/>
+                                                <constraint firstAttribute="bottom" secondItem="dVP-kY-4P8" secondAttribute="bottom" constant="23" id="G7h-cH-x6F"/>
+                                                <constraint firstAttribute="bottom" secondItem="HPS-dh-LBJ" secondAttribute="bottom" id="JSZ-yC-hPY"/>
+                                                <constraint firstItem="HPS-dh-LBJ" firstAttribute="top" secondItem="fvE-pc-I2L" secondAttribute="top" id="MZJ-sz-HS5"/>
+                                                <constraint firstItem="HPS-dh-LBJ" firstAttribute="centerY" secondItem="fvE-pc-I2L" secondAttribute="centerY" id="N7e-d0-JFZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="dVP-kY-4P8" secondAttribute="trailing" constant="33" id="OmO-jt-uIC"/>
+                                                <constraint firstAttribute="bottom" secondItem="HPS-dh-LBJ" secondAttribute="bottom" id="YHv-2E-ox4"/>
+                                                <constraint firstItem="dVP-kY-4P8" firstAttribute="top" secondItem="fvE-pc-I2L" secondAttribute="top" constant="37" id="a2l-cl-Bzw"/>
+                                                <constraint firstItem="HPS-dh-LBJ" firstAttribute="centerY" secondItem="fvE-pc-I2L" secondAttribute="centerY" id="jsg-7i-nOc"/>
+                                                <constraint firstItem="HPS-dh-LBJ" firstAttribute="leading" secondItem="fvE-pc-I2L" secondAttribute="leading" id="reb-TG-gmL"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="fvE-pc-I2L" secondAttribute="bottom" id="d9V-rf-nOP"/>
+                                        <constraint firstItem="fvE-pc-I2L" firstAttribute="top" secondItem="x4m-tP-s1j" secondAttribute="top" id="h90-TC-2tf"/>
+                                        <constraint firstAttribute="trailing" secondItem="fvE-pc-I2L" secondAttribute="trailing" id="mEp-dS-mWO"/>
+                                        <constraint firstItem="fvE-pc-I2L" firstAttribute="leading" secondItem="x4m-tP-s1j" secondAttribute="leading" id="wLT-Uo-ILB"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="userAvatar" destination="HPS-dh-LBJ" id="rMW-HN-W8D"/>
+                                    <outlet property="userNameText" destination="dVP-kY-4P8" id="PzF-SI-raq"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="2rc-0Q-6Ea" id="0mX-Uc-Gsb"/>

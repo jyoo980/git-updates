@@ -33,13 +33,19 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let user = searchResults[indexPath.row] as GitHubUser
         cell.userNameText.text = user.getUserName()
+        
+        // TODO: load user images Asynchronously
+        
         return cell
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.userQuery = userSearchBar.text!
-        self.userSearchBar.endEditing(true)
-        searchForUser()
+        if (searchBar.text != "") {
+            self.searchResults.removeAll()
+            self.userQuery = userSearchBar.text!
+            self.userSearchBar.endEditing(true)
+            searchForUser()
+        }
     }
     
     fileprivate func asyncLoadResults(_ result: ([GitHubUser])) {
@@ -58,10 +64,5 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.asyncLoadResults(result)
         }
     }
-  
-    
-    
-    
-    
     
 }
