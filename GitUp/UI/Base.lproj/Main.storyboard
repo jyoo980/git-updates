@@ -67,7 +67,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmq-Ck-LRJ">
-                                                    <rect key="frame" x="113" y="37" width="229" height="21"/>
+                                                    <rect key="frame" x="113" y="37" width="229" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                                 <constraint firstItem="mwo-L7-KJg" firstAttribute="centerY" secondItem="MvJ-eR-7yx" secondAttribute="centerY" id="Bao-D9-Y08"/>
                                                 <constraint firstAttribute="trailing" secondItem="nmq-Ck-LRJ" secondAttribute="trailing" constant="33" id="Dpi-Kf-efM"/>
                                                 <constraint firstItem="nmq-Ck-LRJ" firstAttribute="leading" secondItem="mwo-L7-KJg" secondAttribute="trailing" constant="23" id="F4o-Pi-XVy"/>
-                                                <constraint firstAttribute="bottom" secondItem="nmq-Ck-LRJ" secondAttribute="bottom" constant="32" id="Hjg-uw-GS1"/>
+                                                <constraint firstAttribute="bottom" secondItem="nmq-Ck-LRJ" secondAttribute="bottom" constant="23" id="Hjg-uw-GS1"/>
                                                 <constraint firstItem="mwo-L7-KJg" firstAttribute="top" secondItem="MvJ-eR-7yx" secondAttribute="top" id="Pwv-Y3-KRj"/>
                                                 <constraint firstItem="nmq-Ck-LRJ" firstAttribute="top" secondItem="MvJ-eR-7yx" secondAttribute="top" constant="37" id="aPs-DV-Apx"/>
                                                 <constraint firstItem="mwo-L7-KJg" firstAttribute="centerY" secondItem="MvJ-eR-7yx" secondAttribute="centerY" id="hHm-YA-PAx"/>

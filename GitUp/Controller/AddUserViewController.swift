@@ -14,7 +14,8 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var searchedUserTable: UITableView!
     @IBOutlet weak var userSearchBar: UISearchBar!
     
-    let testArray = ["James", "Yoo", "GitHub", "Cool"]
+    var userQuery = ""
+    var searchResults : [GitHubUser] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,20 +24,43 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
         userSearchBar.delegate = self
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testArray.count
+        return searchResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchedUserTable.dequeueReusableCell(withIdentifier: "cell") as! UserTableViewCell
         
-        cell.userNameText.text = testArray[indexPath.row]
+        let user = searchResults[indexPath.row] as GitHubUser
+        cell.userNameText.text = user.getUserName()
         return cell
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.userQuery = userSearchBar.text!
+        self.userSearchBar.endEditing(true)
+        searchForUser()
+    }
+    
+    fileprivate func asyncLoadResults(_ result: ([GitHubUser])) {
+        DispatchQueue.main.async {
+            for user in result {
+                self.searchResults.append(user)
+            }
+            self.searchedUserTable.reloadData()
+        }
+    }
+    
+    func searchForUser() {
+        assert(userQuery != "")
+        let searchUserRequest = SearchUserRequest()
+        searchUserRequest.getUserSearchData(fullName: self.userQuery) { (result) -> () in
+            self.asyncLoadResults(result)
+        }
+    }
+  
+    
+    
     
     
     
