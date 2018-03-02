@@ -32,21 +32,26 @@ class SearchUserRequest {
     }
     
     fileprivate func getRequestURL(fullName: String) -> URL? {
-        let firstName = getFirstName(fullName: fullName)
-        let lastName = getLastName(fullName: fullName)
-        var requestURL = self.request.replacingOccurrences(of: "{firstName}", with: firstName)
-        requestURL = requestURL.replacingOccurrences(of: "{lastName}", with: lastName)
+        let nameAsArray = getNameArray(name: fullName)
+        let requestURL = parseIntoURL(name: nameAsArray)
         return URL(string: requestURL)
     }
     
-    fileprivate func getFirstName(fullName: String) -> String {
-        var token = fullName.components(separatedBy: " ")
-        return token[0]
+    fileprivate func getNameArray(name: String) -> [String] {
+        return name.components(separatedBy: " ")
     }
     
-    fileprivate func getLastName(fullName: String) -> String {
-        var token = fullName.components(separatedBy: " ")
-        return token[1]
+    fileprivate func parseIntoURL(name: [String]) -> String {
+        var requestURL = self.request
+        if name.count == 2 {
+            requestURL = requestURL.replacingOccurrences(of: "{firstName}", with: name[0])
+            requestURL = requestURL.replacingOccurrences(of: "{lastName}", with: name[1])
+            return requestURL
+        } else {
+            requestURL = requestURL.replacingOccurrences(of: "{firstName}", with: name[0])
+            requestURL = requestURL.replacingOccurrences(of: "{lastName}", with: "")
+            return requestURL
+        }
     }
     
     fileprivate func parseGitHubUsers(userArray: NSArray) -> [GitHubUser] {
