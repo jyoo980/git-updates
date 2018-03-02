@@ -6,6 +6,8 @@
 //  Copyright © 2018 James Yoo. All rights reserved.
 //
 
+import Alamofire
+import AlamofireImage
 import Foundation
 import UIKit
 
@@ -32,11 +34,23 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = searchedUserTable.dequeueReusableCell(withIdentifier: "cell") as! UserTableViewCell
         
         let user = searchResults[indexPath.row] as GitHubUser
-        cell.userNameText.text = user.getUserName()
-        
-        // TODO: load user images Asynchronously
-        
+        setUserNameText(cell, user)
+        setUserAvatar(gitHubUser: user, cell: cell)
         return cell
+    }
+    
+    fileprivate func setUserNameText(_ cell: UserTableViewCell, _ user: GitHubUser) {
+        cell.userNameText.text = user.getUserName()
+    }
+    
+    fileprivate func setUserAvatar(gitHubUser: GitHubUser, cell: UserTableViewCell) {
+        let imageUrl = gitHubUser.getImageURL()
+        Alamofire.request(imageUrl).responseData{ (response) in
+            if response.error == nil {
+                print(response.result)
+                cell.userAvatar.image = UIImage(data: response.data!)
+            }
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
