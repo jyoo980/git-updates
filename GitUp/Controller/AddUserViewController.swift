@@ -11,10 +11,11 @@ import AlamofireImage
 import Foundation
 import UIKit
 
-class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate, UISearchBarDelegate {
     
     @IBOutlet var searchedUserTable: UITableView!
-    @IBOutlet weak var userSearchBar: UISearchBar!
+    
+    let searchBarController = UISearchController(searchResultsController: nil)
     
     var userQuery = ""
     var searchResults : [GitHubUser] = []
@@ -22,8 +23,23 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         searchedUserTable.delegate = self
+        searchBarController.delegate = self
+        searchBarController.searchBar.delegate = self
         searchedUserTable.dataSource = self
-        userSearchBar.delegate = self
+        initializeNavBar()
+    }
+    
+    fileprivate func initializeNavBar() {
+        navigationItem.title = "Add a user"
+        navigationItem.searchController = self.searchBarController
+        setSearchBarAppearance()
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    fileprivate func setSearchBarAppearance() {
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes
+            = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
+        searchBarController.searchBar.tintColor = .white
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,15 +69,6 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if (searchBar.text != "") {
-            self.searchResults.removeAll()
-            self.userQuery = userSearchBar.text!
-            searchForUser()
-            self.userSearchBar.endEditing(true)
-        }
-    }
-    
     fileprivate func asyncLoadResults(_ result: ([GitHubUser])) {
         DispatchQueue.main.async {
             for user in result {
@@ -76,6 +83,20 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
         let searchUserRequest = SearchUserRequest()
         searchUserRequest.getUserSearchData(fullName: self.userQuery) { (result) -> () in
             self.asyncLoadResults(result)
+        }
+    }
+    
+    func isSearchBarEmpty() -> Bool {
+        return (searchBarController.searchBar.text?.isEmpty)!
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if (!isSearchBarEmpty()) {
+            self.searchResults.removeAll()
+            self.userQuery = searchBarController.searchBar.text!
+            searchForUser()
+            self.searchBarController.isActive = false
+            navigationItem.hidesSearchBarWhenScrolling = true
         }
     }
     
