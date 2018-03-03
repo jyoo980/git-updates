@@ -11,7 +11,7 @@ import AlamofireImage
 import Foundation
 import UIKit
 
-class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
+class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate, UISearchBarDelegate {
     
     @IBOutlet var searchedUserTable: UITableView!
     
@@ -24,6 +24,7 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         searchedUserTable.delegate = self
         searchBarController.delegate = self
+        searchBarController.searchBar.delegate = self
         searchedUserTable.dataSource = self
         initializeNavBar()
     }
@@ -82,6 +83,20 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
         let searchUserRequest = SearchUserRequest()
         searchUserRequest.getUserSearchData(fullName: self.userQuery) { (result) -> () in
             self.asyncLoadResults(result)
+        }
+    }
+    
+    func isSearchBarEmpty() -> Bool {
+        return (searchBarController.searchBar.text?.isEmpty)!
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if (!isSearchBarEmpty()) {
+            self.searchResults.removeAll()
+            self.userQuery = searchBarController.searchBar.text!
+            searchForUser()
+            self.searchBarController.isActive = false
+            navigationItem.hidesSearchBarWhenScrolling = true
         }
     }
     
