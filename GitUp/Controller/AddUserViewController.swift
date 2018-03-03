@@ -31,14 +31,14 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
     fileprivate func initializeNavBar() {
         navigationItem.title = "Add a user"
         navigationItem.searchController = self.searchBarController
-        setSearchFieldTextColor()
+        setSearchBarAppearance()
         navigationItem.hidesSearchBarWhenScrolling = false
     }
     
-    
-    fileprivate func setSearchFieldTextColor() {
+    fileprivate func setSearchBarAppearance() {
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes
             = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
+        searchBarController.searchBar.tintColor = .white
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
