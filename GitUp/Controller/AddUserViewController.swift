@@ -14,7 +14,6 @@ import UIKit
 class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet var searchedUserTable: UITableView!
-    @IBOutlet weak var userSearchBar: UISearchBar!
     
     var userQuery = ""
     var searchResults : [GitHubUser] = []
@@ -23,7 +22,14 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         searchedUserTable.delegate = self
         searchedUserTable.dataSource = self
-        userSearchBar.delegate = self
+        initializeNavBar()
+    }
+    
+    fileprivate func initializeNavBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.title = "Add a user"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,14 +59,14 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if (searchBar.text != "") {
-            self.searchResults.removeAll()
-            self.userQuery = userSearchBar.text!
-            searchForUser()
-            self.userSearchBar.endEditing(true)
-        }
-    }
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        if (searchBar.text != "") {
+//            self.searchResults.removeAll()
+//            self.userQuery = userSearchBar.text!
+//            searchForUser()
+//            self.userSearchBar.endEditing(true)
+//        }
+//    }
     
     fileprivate func asyncLoadResults(_ result: ([GitHubUser])) {
         DispatchQueue.main.async {
