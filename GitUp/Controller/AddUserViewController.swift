@@ -11,9 +11,11 @@ import AlamofireImage
 import Foundation
 import UIKit
 
-class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
     
     @IBOutlet var searchedUserTable: UITableView!
+    
+    let searchBarController = UISearchController(searchResultsController: nil)
     
     var userQuery = ""
     var searchResults : [GitHubUser] = []
@@ -21,15 +23,22 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         searchedUserTable.delegate = self
+        searchBarController.delegate = self
         searchedUserTable.dataSource = self
         initializeNavBar()
     }
     
     fileprivate func initializeNavBar() {
-        let searchController = UISearchController(searchResultsController: nil)
         navigationItem.title = "Add a user"
-        navigationItem.searchController = searchController
+        navigationItem.searchController = self.searchBarController
+        setSearchFieldTextColor()
         navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    
+    fileprivate func setSearchFieldTextColor() {
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes
+            = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,15 +67,6 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
-    
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        if (searchBar.text != "") {
-//            self.searchResults.removeAll()
-//            self.userQuery = userSearchBar.text!
-//            searchForUser()
-//            self.userSearchBar.endEditing(true)
-//        }
-//    }
     
     fileprivate func asyncLoadResults(_ result: ([GitHubUser])) {
         DispatchQueue.main.async {
