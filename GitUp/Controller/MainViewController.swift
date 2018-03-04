@@ -11,11 +11,24 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var followedUsersTable: UITableView!
+    private var followedUsers : [GitHubUser] = []
     
+    override func viewDidLoad() {
+        setFollowedUsers()
+    }
+    
+    fileprivate func setFollowedUsers() {
+        let userCache = FollowedUserCache.shared.cache
+        if !userCache.isEmpty {
+            for (_, value) in userCache {
+                followedUsers.append(value)
+            }
+        }
+    }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO
-        return -1
+        return followedUsers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -82,6 +82,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="followedUsersTable" destination="Vwh-Ww-555" id="KxM-0P-mGe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pkv-HO-SQP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
