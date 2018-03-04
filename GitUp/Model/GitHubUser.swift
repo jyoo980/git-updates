@@ -33,3 +33,11 @@ class GitHubUser {
     }
     
 }
+
+extension GitHubUser: Equatable {
+    
+    static func ==(lhs: GitHubUser, rhs: GitHubUser) -> Bool {
+        return lhs.getPageURL() == rhs.getPageURL()
+    }
+    
+}

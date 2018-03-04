@@ -55,6 +55,22 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true  
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let userCache = FollowedUserCache.shared
+        let followButton = UITableViewRowAction(style: .default, title: "Follow") { (action, indexPath) in
+            let userToRemove = self.searchResults[indexPath.row]
+            userCache.set(key: userToRemove.getUserName(), user: userToRemove)
+            self.searchResults.remove(at: indexPath.row)
+            self.searchedUserTable.deleteRows(at: [indexPath], with: .automatic)
+        }
+        followButton.backgroundColor = UIColor.orange
+        return [followButton]
+    }
+    
     fileprivate func setUserNameText(_ cell: UserTableViewCell, _ user: GitHubUser) {
         cell.userNameText.text = user.getUserName()
     }
