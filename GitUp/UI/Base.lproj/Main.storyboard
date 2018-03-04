@@ -77,7 +77,7 @@
                     <navigationItem key="navigationItem" title="Following" id="5wN-oP-C6X">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="FA6-O7-ekc">
                             <connections>
-                                <segue destination="2rc-0Q-6Ea" kind="show" animates="NO" id="ZpJ-qg-XDa"/>
+                                <segue destination="2rc-0Q-6Ea" kind="show" id="S3O-aO-Alq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -160,7 +160,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCn-C8-20V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1650.4000000000001" y="36.945812807881772"/>
+            <point key="canvasLocation" x="1905" y="37"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AwB-kO-bfs">
