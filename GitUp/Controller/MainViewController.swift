@@ -13,16 +13,18 @@ import AlamofireImage
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var noUserView: UIView!
     @IBOutlet var followedUsersTable: UITableView!
     private var followedUsers : [GitHubUser] = []
     
     override func viewDidLoad() {
         setFollowedUsers()
-        self.view.backgroundColor = UIColor.white
+        setBackground()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setFollowedUsers()
+        setBackground()
         super.viewWillAppear(animated)
         followedUsersTable.reloadData()
     }
@@ -35,6 +37,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     followedUsers.append(value)
                 }
             }
+        }
+    }
+    
+    fileprivate func setBackground() {
+        if self.followedUsers.isEmpty {
+            self.followedUsersTable.backgroundView = noUserView
+        } else {
+            self.followedUsersTable.backgroundView = UIView()
         }
     }
         
