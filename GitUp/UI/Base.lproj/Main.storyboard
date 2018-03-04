@@ -67,6 +67,7 @@
                                 <connections>
                                     <outlet property="userAvatar" destination="1k6-B2-Whw" id="Zmd-iL-OoJ"/>
                                     <outlet property="userNameText" destination="fi4-Bl-kca" id="y8r-Tg-das"/>
+                                    <segue destination="47f-Um-d93" kind="showDetail" id="bIK-gY-bTk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -109,6 +110,27 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="845" y="37"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GIS-Se-KDM">
+            <objects>
+                <viewController id="47f-Um-d93" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M23-9J-Ppc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Octocat" translatesAutoresizingMaskIntoConstraints="NO" id="WQl-Wg-gVH">
+                                <rect key="frame" x="16" y="44" width="130" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="TIc-uC-ftR"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZYN-6R-ljq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1928.8" y="-297.04433497536945"/>
         </scene>
         <!--Add users-->
         <scene sceneID="PGq-zy-f0B">
@@ -181,7 +203,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCn-C8-20V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1905" y="37"/>
+            <point key="canvasLocation" x="1924" y="507"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AwB-kO-bfs">
@@ -209,5 +231,6 @@
     </scenes>
     <resources>
         <image name="OWOctocat" width="896" height="896"/>
+        <image name="Octocat" width="1380" height="1380"/>
     </resources>
 </document>

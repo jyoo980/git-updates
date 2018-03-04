@@ -16,6 +16,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var noUserView: UIView!
     @IBOutlet var followedUsersTable: UITableView!
     private var followedUsers : [GitHubUser] = []
+    private var selectedIndex : Int = -1
     
     override func viewDidLoad() {
         setFollowedUsers()
@@ -59,6 +60,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         setUserNameText(cell, user)
         setUserAvatar(gitHubUser: user, cell: cell)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
     }
     
     fileprivate func setUserNameText(_ cell: UserTableViewCell, _ user: GitHubUser) {
