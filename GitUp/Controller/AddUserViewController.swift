@@ -40,6 +40,8 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes
             = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
         searchBarController.searchBar.tintColor = .white
+        searchBarController.searchBar.barTintColor = .white
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
