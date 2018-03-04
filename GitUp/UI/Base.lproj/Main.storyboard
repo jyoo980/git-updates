@@ -12,7 +12,7 @@
         <!--Following-->
         <scene sceneID="L3t-1k-dzY">
             <objects>
-                <tableViewController title="Following" id="yzg-XI-dMI" sceneMemberID="viewController">
+                <tableViewController title="Following" id="yzg-XI-dMI" customClass="MainViewController" customModule="GitUp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vwh-Ww-555">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
