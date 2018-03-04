@@ -15,8 +15,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet var noUserView: UIView!
     @IBOutlet var followedUsersTable: UITableView!
-    private var followedUsers : [GitHubUser] = []
-    private var selectedIndex : Int = -1
+    var followedUsers : [GitHubUser] = []
     
     override func viewDidLoad() {
         setFollowedUsers()
@@ -63,7 +62,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
+        let selectedProfile = storyboard?.instantiateViewController(withIdentifier: "profileVC") as! UserProfileController
+        selectedProfile.user = followedUsers[indexPath.row]
+        navigationController?.showDetailViewController(selectedProfile, sender: self)
     }
     
     fileprivate func setUserNameText(_ cell: UserTableViewCell, _ user: GitHubUser) {
