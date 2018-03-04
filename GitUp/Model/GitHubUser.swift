@@ -10,7 +10,8 @@ import Foundation
 
 class GitHubUser {
     
-    private var userName: String 
+    private var userName: String
+    private var actualName: String?
     private var pageURL : String
     private var imageURL : String
     
@@ -24,12 +25,20 @@ class GitHubUser {
         return userName
     }
     
+    func getActualName() -> String  {
+        return actualName
+    }
+    
     func getPageURL() -> URL {
         return URL(string: pageURL)!
     }
     
     func getImageURL() -> URL {
         return URL(string: imageURL)!
+    }
+    
+    func setActualName(name: String) {
+        actualName = name
     }
     
 }
