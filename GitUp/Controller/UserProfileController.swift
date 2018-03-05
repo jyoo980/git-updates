@@ -16,8 +16,6 @@ class UserProfileController: UIViewController {
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var realNameLabel: UILabel!
-    
-    private let detailRequest = ProfileDetailRequest()
     var user : GitHubUser?
     
     override func viewDidLoad() {
@@ -32,9 +30,8 @@ class UserProfileController: UIViewController {
     }
     
     fileprivate func setUserVisuals() {
-//        detailRequest.updateProfileDetails(user: user!)
         userNameLabel.text = user?.getUserName()
-//        realNameLabel.text = user?.getActualName()
+        realNameLabel.text = user?.getActualName()
         loadUserAvatar()
     }
     

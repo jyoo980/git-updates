@@ -15,6 +15,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet var noUserView: UIView!
     @IBOutlet var followedUsersTable: UITableView!
+    private let detailRequest = ProfileDetailRequest()
     var followedUsers : [GitHubUser] = []
     
     override func viewDidLoad() {
@@ -35,6 +36,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             for (_, value) in userCache {
                 if (!followedUsers.contains(value)) {
                     followedUsers.append(value)
+                    detailRequest.updateProfileDetails(user: value)
                 }
             }
         }
