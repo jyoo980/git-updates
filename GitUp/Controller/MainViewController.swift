@@ -15,7 +15,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet var noUserView: UIView!
     @IBOutlet var followedUsersTable: UITableView!
-    private var followedUsers : [GitHubUser] = []
+    private let detailRequest = ProfileDetailRequest()
+    var followedUsers : [GitHubUser] = []
     
     override func viewDidLoad() {
         setFollowedUsers()
@@ -35,6 +36,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             for (_, value) in userCache {
                 if (!followedUsers.contains(value)) {
                     followedUsers.append(value)
+                    detailRequest.updateProfileDetails(user: value)
                 }
             }
         }
@@ -59,6 +61,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         setUserNameText(cell, user)
         setUserAvatar(gitHubUser: user, cell: cell)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedProfile = storyboard?.instantiateViewController(withIdentifier: "profileVC") as! UserProfileController
+        selectedProfile.user = followedUsers[indexPath.row]
+        navigationController?.showDetailViewController(selectedProfile, sender: self)
     }
     
     fileprivate func setUserNameText(_ cell: UserTableViewCell, _ user: GitHubUser) {
