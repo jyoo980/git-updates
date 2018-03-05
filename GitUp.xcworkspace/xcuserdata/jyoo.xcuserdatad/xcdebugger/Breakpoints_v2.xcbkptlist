@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GitUp/Controller/UserProfileController.swift"
-            timestampString = "541895290.574993"
+            timestampString = "541923845.609189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "setUserVisuals()"
             landmarkType = "7">
          </BreakpointContent>
@@ -70,16 +70,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GitUp/Controller/UserProfileController.swift"
-            timestampString = "541895290.57505"
+            filePath = "GitUp/Model/ProfileDetailRequest.swift"
+            timestampString = "541923845.609737"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "setUserVisuals()"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "parseProfileData(dict:user:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

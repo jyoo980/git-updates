@@ -26,7 +26,7 @@ class GitHubUser {
     }
     
     func getActualName() -> String  {
-        return actualName
+        return actualName!
     }
     
     func getPageURL() -> URL {
