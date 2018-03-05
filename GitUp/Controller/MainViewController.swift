@@ -35,8 +35,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if !userCache.isEmpty {
             for (_, value) in userCache {
                 if (!followedUsers.contains(value)) {
-                    followedUsers.append(value)
                     detailRequest.updateProfileDetails(user: value)
+                    followedUsers.append(value)
                 }
             }
         }
