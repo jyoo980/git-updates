@@ -14,11 +14,13 @@ class GitHubUser {
     private var actualName: String?
     private var pageURL : String
     private var imageURL : String
+    private var repositories: [Repository]
     
     init(name: String, page: String, image: String) {
         userName = name
         pageURL = page
         imageURL = image
+        repositories = []
     }
     
     func getUserName() -> String {
@@ -41,6 +43,9 @@ class GitHubUser {
         actualName = name
     }
     
+    func getRepositories() -> [Repository] {
+        return repositories
+    }
 }
 
 extension GitHubUser: Equatable {
