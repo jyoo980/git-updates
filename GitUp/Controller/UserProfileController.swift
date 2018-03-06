@@ -15,6 +15,7 @@ class UserProfileController: UIViewController {
     
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userBioText: UITextView!
     @IBOutlet weak var realNameLabel: UILabel!
     var user : GitHubUser?
     
@@ -30,9 +31,12 @@ class UserProfileController: UIViewController {
     }
     
     fileprivate func setUserVisuals() {
+        loadUserAvatar()
         userNameLabel.text = user?.getUserName()
         realNameLabel.text = user?.getActualName()
-        loadUserAvatar()
+        if user?.getBio() != nil {
+            userBioText.text = user?.getBio()
+        }
     }
     
     fileprivate func loadUserAvatar() {

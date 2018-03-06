@@ -17,16 +17,24 @@ class ProfileDetailRequest {
             if let data = data {
                 DispatchQueue.main.async {
                     let responseDict = dataToDict(data: data)
-                    self.parseProfileData(dict: responseDict, user: user)
+                    self.parsePersonals(dict: responseDict, user: user)
                 }
             }
         }
         dataTask.resume()
     }
     
-    fileprivate func parseProfileData(dict: NSDictionary, user: GitHubUser) {
+    fileprivate func setUserBio(_ dict: NSDictionary, _ user: GitHubUser) {
+        if let bio = dict.value(forKey: "bio") as? String {
+            user.setBio(bio: bio)
+        }
+    }
+    
+    fileprivate func parsePersonals(dict: NSDictionary, user: GitHubUser) {
         let realName = dict.value(forKey: "name") as! String
+        setUserBio(dict, user)
         user.setActualName(name: realName)
+        
     }
     
 }
