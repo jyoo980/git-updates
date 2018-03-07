@@ -11,10 +11,6 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class UserRepositoryCell {
-    
-}
-
 class UserProfileController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var userAvatar: UIImageView!
@@ -28,6 +24,7 @@ class UserProfileController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         fillUserInfoCard()
+        userRepoTable.reloadData()
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -54,11 +51,19 @@ class UserProfileController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return user?.getRepositories().count
+        if let numCells = user?.getRepositories().count {
+            return numCells
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let repositories = user?.getRepositories()
+        let cell = userRepoTable.dequeueReusableCell(withIdentifier: "cell") as! UserRepositoryCell
+        
+        let repo = repositories![indexPath.row] as! Repository
+        return cell
     }
     
 }
