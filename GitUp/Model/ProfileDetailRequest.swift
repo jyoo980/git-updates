@@ -27,6 +27,8 @@ class ProfileDetailRequest {
     fileprivate func setUserBio(_ dict: NSDictionary, _ user: GitHubUser) {
         if let bio = dict.value(forKey: "bio") as? String {
             user.setBio(bio: bio)
+        } else {
+            user.setBio(bio: "No bio")
         }
     }
     

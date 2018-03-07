@@ -11,27 +11,28 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class UserProfileController: UIViewController {
+class UserProfileController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userBioText: UITextView!
     @IBOutlet weak var realNameLabel: UILabel!
+    @IBOutlet weak var userDataCollection: UICollectionView!
+
     var user : GitHubUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUserVisuals()
-        userAvatar.layer.cornerRadius = 50
-        userAvatar.layer.masksToBounds = true
+        fillUserInfoCard()
+        userDataCollection.delegate = self
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    fileprivate func setUserVisuals() {
-        loadUserAvatar()
+    fileprivate func fillUserInfoCard() {
+        userAvatar.image = user?.getAvatar()
         userNameLabel.text = user?.getUserName()
         realNameLabel.text = user?.getActualName()
         if user?.getBio() != nil {

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Alamofire
+import AlamofireImage
 
 class GitHubUser {
     
@@ -15,12 +17,13 @@ class GitHubUser {
     private var bio: String?
     private var pageURL : String
     private var imageURL : String
+    private var avatar: UIImage?
     private var repositories: [Repository]
     
-    init(name: String, page: String, image: String) {
+    init(name: String, page: String, imageURL: String) {
         userName = name
         pageURL = page
-        imageURL = image
+        self.imageURL = imageURL
         repositories = []
     }
     
@@ -47,6 +50,10 @@ class GitHubUser {
     func getRepositories() -> [Repository] {
         return repositories
     }
+
+    func getAvatar() -> UIImage {
+        return avatar!
+    }
     
     func setActualName(name: String) {
         actualName = name
@@ -54,6 +61,15 @@ class GitHubUser {
     
     func setBio(bio: String) {
         self.bio = bio
+    }
+    
+    func setAvatar(url: URL) {
+        Alamofire.request(url).responseData{ (response) in
+            if response.error == nil {
+                print(response.result)
+                self.avatar = UIImage(data: response.data!)!
+            }
+        }
     }
     
 }

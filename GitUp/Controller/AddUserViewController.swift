@@ -65,6 +65,7 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
         let userCache = FollowedUserCache.shared
         let followButton = UITableViewRowAction(style: .default, title: "Follow") { (action, indexPath) in
             let userToRemove = self.searchResults[indexPath.row]
+            userToRemove.setAvatar(url: userToRemove.getImageURL())
             userCache.set(key: userToRemove.getUserName(), user: userToRemove)
             self.searchResults.remove(at: indexPath.row)
             self.searchedUserTable.deleteRows(at: [indexPath], with: .automatic)
@@ -110,7 +111,7 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if (!isSearchBarEmpty()) {
-            self.searchResults.removeAll()
+//            self.searchResults.removeAll()
             self.userQuery = searchBarController.searchBar.text!
             searchForUser()
             self.searchBarController.isActive = false
