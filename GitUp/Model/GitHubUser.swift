@@ -12,6 +12,7 @@ class GitHubUser {
     
     private var userName: String
     private var actualName: String?
+    private var bio: String?
     private var pageURL : String
     private var imageURL : String
     private var repositories: [Repository]
@@ -31,6 +32,10 @@ class GitHubUser {
         return actualName!
     }
     
+    func getBio() -> String? {
+        return bio
+    }
+    
     func getPageURL() -> URL {
         return URL(string: pageURL)!
     }
@@ -38,14 +43,19 @@ class GitHubUser {
     func getImageURL() -> URL {
         return URL(string: imageURL)!
     }
+
+    func getRepositories() -> [Repository] {
+        return repositories
+    }
     
     func setActualName(name: String) {
         actualName = name
     }
     
-    func getRepositories() -> [Repository] {
-        return repositories
+    func setBio(bio: String) {
+        self.bio = bio
     }
+    
 }
 
 extension GitHubUser: Equatable {
