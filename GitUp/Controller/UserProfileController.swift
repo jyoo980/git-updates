@@ -11,20 +11,23 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class UserProfileController: UIViewController, UICollectionViewDelegate {
+class UserRepositoryCell {
+    
+}
+
+class UserProfileController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userBioText: UITextView!
     @IBOutlet weak var realNameLabel: UILabel!
-    @IBOutlet weak var userDataCollection: UICollectionView!
+    @IBOutlet weak var userRepoTable: UITableView!
 
     var user : GitHubUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fillUserInfoCard()
-        userDataCollection.delegate = self
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -48,6 +51,14 @@ class UserProfileController: UIViewController, UICollectionViewDelegate {
                 self.userAvatar.image = UIImage(data: response.data!)
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return user?.getRepositories().count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
     }
     
 }
