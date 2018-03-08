@@ -163,7 +163,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8T-aW-1ej">
-                                <rect key="frame" x="16" y="195" width="343" height="103"/>
+                                <rect key="frame" x="16" y="195" width="343" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -175,7 +175,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u1C-nh-osv">
-                                <rect key="frame" x="16" y="306" width="343" height="443"/>
+                                <rect key="frame" x="16" y="279" width="343" height="470"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -190,8 +190,12 @@
                                                     <rect key="frame" x="0.0" y="-3" width="343" height="90"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RepoSym" translatesAutoresizingMaskIntoConstraints="NO" id="hvv-R0-FLd">
+                                                            <rect key="frame" x="8" y="8" width="30" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RepoName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fx-su-YFG">
-                                                            <rect key="frame" x="129" y="32" width="85" height="26"/>
+                                                            <rect key="frame" x="46" y="10" width="274" height="26"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -203,6 +207,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="repoImage" destination="hvv-R0-FLd" id="N6I-Zg-lHD"/>
                                             <outlet property="repoNameLabel" destination="5Fx-su-YFG" id="3sY-Yh-YZJ"/>
                                         </connections>
                                     </tableViewCell>
@@ -323,5 +328,6 @@
     </scenes>
     <resources>
         <image name="OWOctocat" width="896" height="896"/>
+        <image name="RepoSym" width="1344" height="1344"/>
     </resources>
 </document>

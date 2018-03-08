@@ -66,7 +66,6 @@ class UserProfileController: UIViewController, UITableViewDelegate, UITableViewD
 
         let cell = userRepoTable.dequeueReusableCell(withIdentifier: "cell") as! UserRepositoryCell
         cell.setRepositoryName(name: repo.getRepoName())
-        
         return cell
     }
     
