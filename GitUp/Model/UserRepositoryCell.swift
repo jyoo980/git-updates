@@ -11,8 +11,7 @@ import UIKit
 
 class UserRepositoryCell: UITableViewCell {
     
-    @IBOutlet weak var repoSymbol: UIImageView!
-    @IBOutlet weak var repoName: UILabel!
+    @IBOutlet weak var repoNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,12 +20,11 @@ class UserRepositoryCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        repoSymbol.layer.cornerRadius = 5
-        repoSymbol.clipsToBounds = true       
+       
     }
     
     func setRepositoryName(name: String) {
-        repoName.text = name
+        repoNameLabel.text = name
     }
     
 }
