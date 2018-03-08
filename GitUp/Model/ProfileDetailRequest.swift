@@ -63,10 +63,16 @@ class ProfileDetailRequest {
     }
     
     fileprivate func extractRepoData(repo: NSDictionary, user: GitHubUser) {
-        let name = repo.value(forKey: "full_name") as! String
-        var repo = Repository(owner: user.getUserName(), name: name)
+        let fullName = repo.value(forKey: "full_name") as! String
+        let repoName = cleanRepoName(name: fullName)
+        let repo = Repository(owner: user.getUserName(), name: repoName)
         user.addRepository(repo: repo)
     }
+    
+    fileprivate func cleanRepoName(name: String) -> String {
+        return name.components(separatedBy: "/")[1]        
+    }
+
 }
     
 
