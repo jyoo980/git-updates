@@ -13,6 +13,7 @@ class Repository {
     private var owner: String?
     private var name: String?
     private var commits: [Commit]?
+    let NO_COMMITS = "No commits"
     
     init(owner: String, name: String) {
         self.owner = owner
@@ -26,6 +27,14 @@ class Repository {
     
     func getRepoName() -> String {
         return name!
+    }
+    
+    func getLatestCommit() -> String {
+        if commits!.count > 0 {
+            return commits![0].getMessage()
+        } else {
+           return NO_COMMITS
+        }
     }
     
     func getCommits() -> [Commit] {

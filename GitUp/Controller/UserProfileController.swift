@@ -11,27 +11,30 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class UserProfileController: UIViewController {
+class UserProfileController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userBioText: UITextView!
     @IBOutlet weak var realNameLabel: UILabel!
+    @IBOutlet weak var userRepoTable: UITableView!
+
     var user : GitHubUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUserVisuals()
-        userAvatar.layer.cornerRadius = 50
-        userAvatar.layer.masksToBounds = true
+        fillUserInfoCard()
+        userRepoTable.delegate = self
+        userRepoTable.dataSource = self
+        userRepoTable.reloadData()
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    fileprivate func setUserVisuals() {
-        loadUserAvatar()
+    fileprivate func fillUserInfoCard() {
+        userAvatar.image = user?.getAvatar()
         userNameLabel.text = user?.getUserName()
         realNameLabel.text = user?.getActualName()
         if user?.getBio() != nil {
@@ -47,6 +50,24 @@ class UserProfileController: UIViewController {
                 self.userAvatar.image = UIImage(data: response.data!)
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let numCells = user?.getRepositories().count {
+            return numCells
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let repositories = user?.getRepositories()
+        let repo = repositories![indexPath.row]
+
+        let cell = userRepoTable.dequeueReusableCell(withIdentifier: "cell") as! UserRepositoryCell
+        cell.setRepositoryName(name: repo.getRepoName())
+        cell.setRecentCommit(commitMsg: repo.getLatestCommit())
+        return cell
     }
     
 }

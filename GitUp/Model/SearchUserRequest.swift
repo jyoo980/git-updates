@@ -67,7 +67,7 @@ class SearchUserRequest {
         let userName = userDict.value(forKey: LOGIN_KEY) as! String
         let userURL = userDict.value(forKey: URL_KEY) as! String
         let userImageURL = userDict.value(forKey: AVATAR_KEY) as! String
-        userSearchResults.append(GitHubUser(name: userName, page: userURL, image: userImageURL))
+        userSearchResults.append(GitHubUser(name: userName, page: userURL, imageURL: userImageURL))
     }
     
 }
