@@ -24,6 +24,8 @@ class UserProfileController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         fillUserInfoCard()
+        userRepoTable.delegate = self
+        userRepoTable.dataSource = self
         userRepoTable.reloadData()
     }
     
@@ -60,9 +62,11 @@ class UserProfileController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let repositories = user?.getRepositories()
+        let repo = repositories![indexPath.row]
+
         let cell = userRepoTable.dequeueReusableCell(withIdentifier: "cell") as! UserRepositoryCell
+        cell.setRepositoryName(name: repo.getRepoName())
         
-        let repo = repositories![indexPath.row] as! Repository
         return cell
     }
     

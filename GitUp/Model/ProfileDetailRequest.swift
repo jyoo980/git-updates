@@ -18,6 +18,7 @@ class ProfileDetailRequest {
                 DispatchQueue.main.async {
                     let responseDict = dataToDict(data: data)
                     self.parsePersonals(dict: responseDict, user: user)
+                    self.makeRepoInfoRequest(dict: responseDict, user: user)
                 }
             }
         }
@@ -39,4 +40,33 @@ class ProfileDetailRequest {
         
     }
     
+    fileprivate func makeRepoInfoRequest(dict: NSDictionary, user: GitHubUser) {
+        let url = dict.value(forKey: "repos_url") as! String
+        let request = URL(string: url)
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request!) { (data, response, error) in
+            if let data = data {
+                DispatchQueue.main.async {
+                    let repoArray = dataToArray(data: data)
+                    self.parseRepositories(repositories: repoArray!!, user: user)
+                }
+            }
+        }
+        dataTask.resume()
+    }
+    
+    fileprivate func parseRepositories(repositories: NSArray, user: GitHubUser) {
+        for repo in repositories {
+            let repoDictionary = repo as! NSDictionary
+            extractRepoData(repo: repoDictionary, user: user)
+        }
+    }
+    
+    fileprivate func extractRepoData(repo: NSDictionary, user: GitHubUser) {
+        let name = repo.value(forKey: "full_name") as! String
+        var repo = Repository(owner: user.getUserName(), name: name)
+        user.addRepository(repo: repo)
+    }
 }
+    
+

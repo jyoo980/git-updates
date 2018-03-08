@@ -50,7 +50,11 @@ class GitHubUser {
     func getRepositories() -> [Repository] {
         return repositories
     }
-
+    
+    func addRepository(repo: Repository) {
+        repositories.append(repo)
+    }
+    
     func getAvatar() -> UIImage {
         return avatar!
     }

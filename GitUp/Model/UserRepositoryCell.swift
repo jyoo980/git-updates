@@ -25,4 +25,8 @@ class UserRepositoryCell: UITableViewCell {
         repoSymbol.clipsToBounds = true       
     }
     
+    func setRepositoryName(name: String) {
+        repoName.text = name
+    }
+    
 }

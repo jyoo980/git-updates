@@ -111,7 +111,7 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if (!isSearchBarEmpty()) {
-//            self.searchResults.removeAll()
+            self.searchResults.removeAll()
             self.userQuery = searchBarController.searchBar.text!
             searchForUser()
             self.searchBarController.isActive = false
