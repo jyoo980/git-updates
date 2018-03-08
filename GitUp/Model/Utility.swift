@@ -12,6 +12,11 @@ func dataToDict(data: Data?) -> NSDictionary {
     return try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! NSDictionary
 }
 
-func dataToArray(data: Data?) -> NSArray?? {
-    return try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! NSArray
+func dataToArray(data: Data?) -> NSArray? {
+    do{
+        let array = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSArray
+        return array
+    } catch {
+        return NSArray()
+    }
 }

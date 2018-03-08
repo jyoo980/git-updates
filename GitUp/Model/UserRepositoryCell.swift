@@ -13,6 +13,7 @@ class UserRepositoryCell: UITableViewCell {
     
     @IBOutlet weak var repoNameLabel: UILabel!
     @IBOutlet weak var repoImage: UIImageView!
+    @IBOutlet weak var recentCommitLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +28,10 @@ class UserRepositoryCell: UITableViewCell {
     
     func setRepositoryName(name: String) {
         repoNameLabel.text = name
+    }
+    
+    func setRecentCommit(commitMsg: String) {
+        recentCommitLabel.text = commitMsg
     }
     
 }

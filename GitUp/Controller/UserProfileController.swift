@@ -66,6 +66,7 @@ class UserProfileController: UIViewController, UITableViewDelegate, UITableViewD
 
         let cell = userRepoTable.dequeueReusableCell(withIdentifier: "cell") as! UserRepositoryCell
         cell.setRepositoryName(name: repo.getRepoName())
+        cell.setRecentCommit(commitMsg: repo.getLatestCommit())
         return cell
     }
     

@@ -48,7 +48,7 @@ class ProfileDetailRequest {
             if let data = data {
                 DispatchQueue.main.async {
                     let repoArray = dataToArray(data: data)
-                    self.parseRepositories(repositories: repoArray!!, user: user)
+                    self.parseRepositories(repositories: repoArray!, user: user)
                 }
             }
         }
@@ -63,16 +63,43 @@ class ProfileDetailRequest {
     }
     
     fileprivate func extractRepoData(repo: NSDictionary, user: GitHubUser) {
-        let fullName = repo.value(forKey: "full_name") as! String
-        let repoName = cleanRepoName(name: fullName)
-        let repo = Repository(owner: user.getUserName(), name: repoName)
-        user.addRepository(repo: repo)
+        let name = repo.value(forKey: "name") as! String
+        let commitUrl = repo.value(forKey: "commits_url") as! String
+        let createdRepo = Repository(owner: user.getUserName(), name: name)
+        parseCommits(fullCommitUrl: commitUrl, repo: createdRepo)
+        user.addRepository(repo: createdRepo)
     }
     
-    fileprivate func cleanRepoName(name: String) -> String {
-        return name.components(separatedBy: "/")[1]        
+    fileprivate func parseCommits(fullCommitUrl: String, repo: Repository) {
+        let requestString = fullCommitUrl.components(separatedBy: "commits")[0].appending("commits")
+        let url = URL(string: requestString)
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: url!) { (data, response, error) in
+            if let data = data {
+                DispatchQueue.main.async {
+                    let commitsArray = dataToArray(data: data)
+                    if commitsArray != nil {
+                        self.parseCommitArray(commits: commitsArray!, repo: repo)
+                    }
+                }
+            }
+        }
+        dataTask.resume()
+    }
+    
+    fileprivate func parseCommitArray(commits: NSArray, repo: Repository) {
+        for commit in commits {
+            let commitDict = commit as! NSDictionary
+            parseOneCommit(commit: commitDict, repo: repo)
+        }
+    }
+    
+    fileprivate func parseOneCommit(commit: NSDictionary, repo: Repository) {
+        let commitSHA = commit.value(forKey: "sha") as! String
+        let commitHistoryDict = commit.value(forKey: "commit") as! NSDictionary
+        let message = commitHistoryDict.value(forKey: "message") as! String
+        let commit = Commit(sha: commitSHA, author: repo.getOwner(), message: message)
+        repo.addCommit(commit: commit)
     }
 
 }
-    
-
