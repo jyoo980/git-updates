@@ -80,6 +80,8 @@ class AddUserViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     fileprivate func setUserAvatar(gitHubUser: GitHubUser, cell: UserTableViewCell) {
         let imageUrl = gitHubUser.getImageURL()
+        logCall(message: "API Call: Get User Image")
+
         Alamofire.request(imageUrl).responseData{ (response) in
             if response.error == nil {
                 print(response.result)

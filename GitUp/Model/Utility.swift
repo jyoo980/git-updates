@@ -20,3 +20,8 @@ func dataToArray(data: Data?) -> NSArray? {
         return NSArray()
     }
 }
+
+func logCall(message: String) {
+    let logger = APILogger.shared
+    logger.log(event: message)
+}

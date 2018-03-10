@@ -13,6 +13,8 @@ class ProfileDetailRequest {
     func updateProfileDetails(user: GitHubUser) {
         let requestUrl = user.getPageURL()
         let session = URLSession.shared
+        logCall(message: "API Call: Update User Details")
+
         let dataTask = session.dataTask(with: requestUrl) { (data, response, error) in
             if let data = data {
                 DispatchQueue.main.async {
@@ -44,6 +46,8 @@ class ProfileDetailRequest {
         let url = dict.value(forKey: "repos_url") as! String
         let request = URL(string: url)
         let session = URLSession.shared
+        logCall(message: "API Call: Repository Info Request")
+
         let dataTask = session.dataTask(with: request!) { (data, response, error) in
             if let data = data {
                 DispatchQueue.main.async {
@@ -74,6 +78,8 @@ class ProfileDetailRequest {
         let requestString = fullCommitUrl.components(separatedBy: "commits")[0].appending("commits")
         let url = URL(string: requestString)
         let session = URLSession.shared
+        logCall(message: "API Call: Commit Info Request")
+
         let dataTask = session.dataTask(with: url!) { (data, response, error) in
             if let data = data {
                 DispatchQueue.main.async {

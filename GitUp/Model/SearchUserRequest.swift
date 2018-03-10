@@ -18,6 +18,7 @@ class SearchUserRequest {
     func getUserSearchData(fullName: String, completionHandler: @escaping (_ result:[GitHubUser]) ->()) {
         let session = URLSession.shared
         let requestURL = getRequestURL(fullName: fullName)
+        logCall(message: "API Call in SearchUserRequest")
         
         let dataTask = session.dataTask(with: requestURL!) { (data, response, error) in
             

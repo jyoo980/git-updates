@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GitUp/Model/SearchUserRequest.swift"
-            timestampString = "542175474.912564"
+            timestampString = "542353687.279021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "getUserSearchData(fullName:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
