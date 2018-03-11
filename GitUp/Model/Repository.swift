@@ -16,9 +16,10 @@ class Repository {
     private var stars: Int?
     let NO_COMMITS = "No commits"
     
-    init(owner: String, name: String) {
+    init(owner: String, name: String, stars: Int) {
         self.owner = owner
         self.name = name
+        self.stars = stars
         commits = []
     }
    

@@ -65,7 +65,8 @@ class ProfileDetailRequest {
     fileprivate func extractRepoData(repo: NSDictionary, user: GitHubUser) {
         let name = repo.value(forKey: "name") as! String
         let commitUrl = repo.value(forKey: "commits_url") as! String
-        let createdRepo = Repository(owner: user.getUserName(), name: name)
+        let starCount = repo.value(forKey: "stargazers_count") as! Int
+        let createdRepo = Repository(owner: user.getUserName(), name: name, stars: starCount)
         parseCommits(fullCommitUrl: commitUrl, repo: createdRepo)
         user.addRepository(repo: createdRepo)
     }
