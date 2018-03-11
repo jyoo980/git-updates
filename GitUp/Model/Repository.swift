@@ -13,6 +13,7 @@ class Repository {
     private var owner: String?
     private var name: String?
     private var commits: [Commit]?
+    private var stars: Int?
     let NO_COMMITS = "No commits"
     
     init(owner: String, name: String) {
@@ -39,6 +40,10 @@ class Repository {
     
     func getCommits() -> [Commit] {
         return commits!
+    }
+    
+    func getStars() -> Int {
+        return stars!
     }
     
     func addCommit(commit: Commit) {
