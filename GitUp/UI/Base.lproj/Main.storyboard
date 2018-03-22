@@ -270,17 +270,27 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="←" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRr-7s-bD2">
+                                                    <rect key="frame" x="337" y="37" width="15" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Vy4-Rv-VAS" firstAttribute="leading" secondItem="MvJ-eR-7yx" secondAttribute="leadingMargin" constant="9" id="2r9-Bk-NfO"/>
                                                 <constraint firstItem="ANQ-bk-VoM" firstAttribute="top" secondItem="MvJ-eR-7yx" secondAttribute="top" constant="37" id="5XG-oh-RbQ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Vy4-Rv-VAS" secondAttribute="trailing" constant="270" id="BBT-FH-rra"/>
+                                                <constraint firstAttribute="trailing" secondItem="NRr-7s-bD2" secondAttribute="trailing" constant="23" id="KlY-ML-6TQ"/>
                                                 <constraint firstItem="Vy4-Rv-VAS" firstAttribute="top" secondItem="MvJ-eR-7yx" secondAttribute="topMargin" constant="1" id="NNM-iz-KSm"/>
+                                                <constraint firstItem="NRr-7s-bD2" firstAttribute="top" secondItem="MvJ-eR-7yx" secondAttribute="top" constant="37" id="UND-zp-iZV"/>
                                                 <constraint firstItem="ANQ-bk-VoM" firstAttribute="leading" secondItem="Vy4-Rv-VAS" secondAttribute="trailing" constant="23" id="XP2-zJ-lBK"/>
+                                                <constraint firstAttribute="bottom" secondItem="NRr-7s-bD2" secondAttribute="bottom" constant="37" id="Zh7-Ag-vre"/>
                                                 <constraint firstAttribute="bottom" secondItem="ANQ-bk-VoM" secondAttribute="bottom" constant="37" id="jQw-GI-UAJ"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Vy4-Rv-VAS" secondAttribute="bottom" constant="-2" id="ldC-Vg-Yz3"/>
                                                 <constraint firstAttribute="trailing" secondItem="ANQ-bk-VoM" secondAttribute="trailing" constant="23" id="qQi-Mt-yN7"/>
+                                                <constraint firstItem="NRr-7s-bD2" firstAttribute="leading" secondItem="Vy4-Rv-VAS" secondAttribute="trailing" constant="240" id="t5x-TY-8kz"/>
                                             </constraints>
                                         </view>
                                     </subviews>
