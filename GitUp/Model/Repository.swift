@@ -30,13 +30,9 @@ class Repository {
     func getRepoName() -> String {
         return name!
     }
-    
+
     func getLatestCommit() -> String {
-        if commits!.count > 0 {
-            return commits![0].getMessage()
-        } else {
-           return NO_COMMITS
-        }
+        return (commits!.count > 0)? commits![0].getMessage() : NO_COMMITS
     }
     
     func getCommits() -> [Commit] {
