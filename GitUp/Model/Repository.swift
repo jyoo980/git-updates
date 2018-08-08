@@ -32,7 +32,7 @@ class Repository {
     }
 
     func getLatestCommit() -> String {
-        return (commits!.count > 0)? commits![0].getMessage() : NO_COMMITS
+        return (commits!.count > 0) ? commits![0].getMessage() : NO_COMMITS
     }
     
     func getCommits() -> [Commit] {
