@@ -10,9 +10,9 @@ import Foundation
 
 class Commit {
     
-    private var sha: String?
-    private var author: String?
-    private var message: String?
+    private var sha: String
+    private var author: String
+    private var message: String
     
     init(sha: String, author: String, message: String) {
         self.sha = sha
@@ -20,16 +20,16 @@ class Commit {
         self.message = message
     }
     
-    func getSha() -> String {
-        return sha!
+    public func getSha() -> String {
+        return sha
     }
     
-    func getAuthor() -> String {
-        return author!
+    public func getAuthor() -> String {
+        return author
     }
     
-    func getMessage() -> String {
-        return message!
+    public func getMessage() -> String {
+        return message
     }
     
 }
